@@ -11,10 +11,25 @@ class ResultadoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_resultado)
 
+        val dados: Bundle = intent.extras
+
+        val numero = dados.getInt("numero")
+
+        if(numero == 0){
+
+            img_resultado.setImageResource(R.drawable.moeda_cara)
+
+        }else{
+            img_resultado.setImageResource(R.drawable.moeda_coroa)
+        }
 
         btn_voltar.setOnClickListener {
-            val intent = Intent(applicationContext, MainActivity::class.java)
-            startActivity(intent)
+
+            //val intent = Intent(applicationContext, MainActivity::class.java)
+            //startActivity(intent)
+
+            //Finalizar activity para não empilhar
+            finish()
         }
     }
 }
